@@ -1,0 +1,37 @@
+<br><br>
+<h3>Cập nhật sách</h3>
+<hr>
+<form (ngSubmit)="editSubmit()" [formGroup]="editForm" id="form1">
+  <div class="form-group">
+    <label>Tên</label>
+    <input type="text" class="form-control" formControlName="title" >
+  </div>
+  <div *ngIf="title.invalid && (title.touched || title.dirty)" class="alert alert-danger">
+    <div *ngIf="title.errors.required">
+      Tên không được để trống !
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Tác giả</label>
+    <input type="text" class="form-control" formControlName="author" >
+  </div>
+  <div *ngIf="author.invalid && (author.touched || author.dirty)" class="alert alert-danger">
+    <div *ngIf="author.errors.required">
+      Giá không được để trống !
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Mô tả</label>
+    <textarea class="form-control" rows="3" formControlName="description"></textarea>
+  </div>
+  <div *ngIf="description.invalid && (description.touched || description.dirty)" class="alert alert-danger">
+    <div *ngIf="description.errors.required">
+      Mô tả không được để trống !
+    </div>
+  </div>
+
+  <button class="btn btn-info">Cập nhật</button>
+  <button (click)="list()" class="btn btn-secondary">Thoát</button>
+</form>
